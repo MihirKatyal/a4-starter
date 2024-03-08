@@ -16,3 +16,11 @@ class OpenWeather:
         self.humidity = None
         self.sunset = None
         self.city = None
+
+    def set_apikey(self, apikey: str) -> None:
+        self.apikey = apikey
+
+    def load_data(self) -> None:
+        if not self.apikey:
+            raise ValueError("API key is not set.")
+        
