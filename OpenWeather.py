@@ -37,4 +37,20 @@ class OpenWeather:
             self.description = data['weather'][0]['description']
             self.humidity = data['main']['humidity']
             sunset_time = data['sys']['sunset']
-            self.city = data['name']       
+            self.city = data['name']
+            # Convert UNIX timestamp to readable format if necessary
+            # For simplicity, here it's left as UNIX timestamp
+            self.sunset = sunset_time
+        except urllib.error.URLError as e:
+            raise ConnectionError("There was an error connecting to the internet or the API URL was incorrect.")
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                raise ConnectionError("Requested data not found (404 error).")
+            elif e.code == 503:
+                raise ConnectionError("Service unavailable (503 error).")
+            else:
+                raise ConnectionError(f"HTTP error encountered: {e.code}")
+        except json.JSONDecodeError:
+            raise ValueError("Error processing JSON data from API.")
+        except KeyError:
+            raise ValueError("Incomplete or incorrect data received from API.")
