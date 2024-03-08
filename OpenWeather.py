@@ -24,3 +24,17 @@ class OpenWeather:
         if not self.apikey:
             raise ValueError("API key is not set.")
         
+        url = f"http://api.openweathermap.org/data/2.5/weather?zip={self.zip_code},{self.country_code}&appid={self.apikey}&units=metric"
+        try:
+            response = urllib.request.urlopen(url)
+            data = json.loads(response.read())
+            # Assign data to attributes
+            self.temperature = data['main']['temp']
+            self.high_temperature = data['main']['temp_max']
+            self.low_temperature = data['main']['temp_min']
+            self.longitude = data['coord']['lon']
+            self.latitude = data['coord']['lat']
+            self.description = data['weather'][0]['description']
+            self.humidity = data['main']['humidity']
+            sunset_time = data['sys']['sunset']
+            self.city = data['name']       
