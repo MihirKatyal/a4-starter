@@ -1,10 +1,16 @@
-# lastfm.py
+import urllib.request
+import urllib.error
+import json
 
-# Starter code for assignment 4 in ICS 32
-# Programming with Software Libraries in Python
+class LastFM:
+    def __init__(self, user: str):
+        self.user = user
+        self.api_key = None
+        self.top_tracks = None
 
-# Replace the following placeholders with your information.
+    def set_apikey(self, api_key: str) -> None:
+        self.api_key = api_key
 
-# NAME
-# EMAIL
-# STUDENT ID
+    def load_top_tracks(self) -> None:
+        if not self.api_key:
+            raise ValueError("API key is not set.")
