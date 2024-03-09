@@ -38,9 +38,7 @@ class OpenWeather:
             self.humidity = data['main']['humidity']
             sunset_time = data['sys']['sunset']
             self.city = data['name']
-            # Convert UNIX timestamp to readable format if necessary
-            # For simplicity, here it's left as UNIX timestamp
-            self.sunset = sunset_time
+            self.sunset = sunset_time  # You might want to format this timestamp
         except urllib.error.URLError as e:
             raise ConnectionError("There was an error connecting to the internet or the API URL was incorrect.")
         except urllib.error.HTTPError as e:
@@ -54,3 +52,10 @@ class OpenWeather:
             raise ValueError("Error processing JSON data from API.")
         except KeyError:
             raise ValueError("Incomplete or incorrect data received from API.")
+
+    def transclude(self, message: str) -> str:
+        if '@weather' in message:
+            self.load_data()  # Ensure data is loaded
+            weather_data = f"{self.description}, {self.temperature}°C (high of {self.high_temperature}°C, low of {self.low_temperature}°C)"
+            message = message.replace('@weather', weather_data)
+        return message
