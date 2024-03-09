@@ -1,4 +1,4 @@
-# Removed unused import statement
+import urllib.request
 import urllib.error
 import json
 
@@ -28,3 +28,11 @@ class LastFM:
             raise ValueError("Error processing JSON data from API.")
         except KeyError:
             raise ValueError("Incomplete or incorrect data received from API.")
+        
+    def print_top_tracks(self) -> None:
+        if not self.top_tracks:
+            print("No top tracks available.")
+            return
+        print("Top Tracks:")
+        for i, (track, playcount) in enumerate(self.top_tracks, start=1):
+            print(f"{i}. {track} (Playcount: {playcount})")
