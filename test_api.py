@@ -9,13 +9,11 @@ def test_api(message: str, apikey: str, webapi: WebAPI):
     print(result)
 
 if __name__ == "__main__":
-    # Replace 'your_openweather_api_key' with your actual OpenWeather API key
-    open_weather_api_key = 'your_openweather_api_key'
-    # Replace 'your_lastfm_api_key' with your actual LastFM API key
-    lastfm_api_key = 'your_lastfm_api_key'
+    open_weather_api_key = '6aff17baf0c23f582c0d2028522c3d03'
+    lastfm_api_key = '43effd57c3bbcfc8d88897c50b1cb0cf'
     
     open_weather = OpenWeather()  # Utilizes default parameters
-    lastfm = LastFM("default_user")  # You might want to set a default user for testing
+    lastfm = LastFM("default_user")  
     
     # Testing OpenWeather
     test_api("Testing the weather: @weather", open_weather_api_key, open_weather)
