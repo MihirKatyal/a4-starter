@@ -69,12 +69,20 @@ def publish_post(profile):
     post_index = int(input("Select the index of the post you want to publish: "))
     try:
         post = profile.get_posts()[post_index]
-        if ds_client.send(profile.dsuserver, 3021, profile.username, profile.password, message=post.entry):
+        # Process the post entry for @weather and @lastfm keywords
+        # Process the entry through the weather API
+        entry_with_weather = weather_api.transclude(post.entry)
+        # Then process the entry through the LastFM API
+        final_entry = lastfm_api.transclude(entry_with_weather)
+
+        # Now send the final_entry instead of the original post.entry
+        if ds_client.send(profile.dsuserver, 3021, profile.username, profile.password, message=final_entry):
             print("Post published successfully.")
         else:
             print("Failed to publish post.")
     except IndexError:
         print("Invalid post index.")
+
 
 def update_bio(profile):
     new_bio = input("Enter your new bio: ").strip()
