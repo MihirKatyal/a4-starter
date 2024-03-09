@@ -5,7 +5,6 @@ from LastFM import LastFM
 
 OPENWEATHER_API_KEY = '6aff17baf0c23f582c0d2028522c3d03'
 LASTFM_API_KEY = '43effd57c3bbcfc8d88897c50b1cb0cf'
-# For OpenWeather, you might want to ask the user or have a default
 OPENWEATHER_ZIP = '92617'
 OPENWEATHER_COUNTRY = 'US'
 LASTFM_USER = 'MihirKatyal'
