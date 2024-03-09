@@ -28,7 +28,7 @@ class LastFM:
             raise ValueError("Error processing JSON data from API.")
         except KeyError:
             raise ValueError("Incomplete or incorrect data received from API.")
-        
+
     def print_top_tracks(self) -> None:
         if not self.top_tracks:
             print("No top tracks available.")

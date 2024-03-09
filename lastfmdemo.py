@@ -1,7 +1,7 @@
 from LastFM import LastFM
 
 def main():
-    user = "MihirKatyal"  # Replace this with your LastFM username
+    user = "MihirKatyal" 
     api_key = "43effd57c3bbcfc8d88897c50b1cb0cf"  
 
     last_fm = LastFM(user)
