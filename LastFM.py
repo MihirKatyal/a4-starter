@@ -29,10 +29,12 @@ class LastFM:
         except KeyError:
             raise ValueError("Incomplete or incorrect data received from API.")
 
-    def print_top_tracks(self) -> None:
-        if not self.top_tracks:
-            print("No top tracks available.")
-            return
-        print("Top Tracks:")
-        for i, (track, playcount) in enumerate(self.top_tracks, start=1):
-            print(f"{i}. {track} (Playcount: {playcount})")
+    def transclude(self, message: str) -> str:
+        if '@lastfm' in message:
+            self.load_top_tracks()  # Ensure data is loaded
+            if self.top_tracks:
+                top_tracks_str = ', '.join([f"{track} (Playcount: {playcount})" for track, playcount in self.top_tracks])
+                message = message.replace('@lastfm', f"Top tracks: {top_tracks_str}")
+            else:
+                message = message.replace('@lastfm', "No top tracks available.")
+        return message
