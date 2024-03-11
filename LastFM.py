@@ -27,7 +27,7 @@ class LastFM(WebAPI):
             raise ValueError("Error processing JSON data from API.")
         except KeyError:
             raise ValueError("Incomplete or incorrect data received from API.")
-
+        
     def transclude(self, message: str) -> str:
         if '@lastfm' in message:
             self.load_data()  # Ensure data is loaded

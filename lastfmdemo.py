@@ -7,8 +7,8 @@ def main():
     last_fm = LastFM(user)
     last_fm.set_apikey(api_key)
     try:
-        last_fm.load_data()  # Updated from last_fm.load_top_tracks()
-        last_fm.print_top_tracks()  
+        last_fm.load_data()  # Updated from load_top_tracks
+        last_fm.print_top_tracks()
     except ConnectionError as e:
         print(f"Error: {str(e)}")
     except ValueError as e:
