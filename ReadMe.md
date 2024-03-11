@@ -1,0 +1,1 @@
+This project extends the functionality of a Distributed Social (DS) program, allowing users to include live weather updates and music information in their journal entries using keywords. This enhancement utilizes the OpenWeather and LastFM APIs
