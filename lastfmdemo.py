@@ -1,3 +1,7 @@
+#Mihir Katyal
+#mkatyal@uci.edu
+#19099879
+
 from LastFM import LastFM
 
 def main():

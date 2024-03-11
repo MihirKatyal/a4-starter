@@ -1,3 +1,7 @@
+#Mihir Katyal
+#mkatyal@uci.edu
+#19099879
+
 from OpenWeather import OpenWeather
 
 def main():

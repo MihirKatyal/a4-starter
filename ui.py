@@ -1,3 +1,7 @@
+#Mihir Katyal
+#mkatyal@uci.edu
+#19099879
+
 import ds_client
 import Profile
 from OpenWeather import OpenWeather

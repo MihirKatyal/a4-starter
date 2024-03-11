@@ -1,3 +1,8 @@
+#Mihir Katyal
+#mkatyal@uci.edu
+#19099879
+
+
 from fileinput import filename
 from pathlib import Path
 import json

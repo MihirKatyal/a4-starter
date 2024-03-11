@@ -1,3 +1,7 @@
+#Mihir Katyal
+#mkatyal@uci.edu
+#19099879
+
 import socket
 import ds_protocol
 import time

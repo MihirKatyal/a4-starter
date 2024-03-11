@@ -1,3 +1,8 @@
+#Mihir Katyal
+#mkatyal@uci.edu
+#19099879
+
+
 import json
 from collections import namedtuple
 import time
